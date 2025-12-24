@@ -1,0 +1,39 @@
+/* Dropdown geral */
+.navbar .dropdown-menu {
+  border-radius: 12px;        /* Bordas arredondadas */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Sombra */
+  background-color: #f8f9fa;  /* Cor de fundo */
+  border: 1px solid #ddd;     /* Borda clara */
+  padding: 0.5rem 0;
+  min-width: 200px;           /* Largura mínima */
+  transition: all 0.3s ease;
+}
+
+/* Itens do dropdown */
+.navbar .dropdown-item {
+  padding: 0.6rem 1.5rem;
+  color: #333;                /* Cor do texto */
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Hover nos itens */
+.navbar .dropdown-item:hover {
+  background-color: #007bff;  /* Fundo azul Bootstrap */
+  color: white;               /* Texto branco */
+  border-radius: 8px;
+}
+
+/* Divisor estilizado */
+.navbar .dropdown-divider {
+  border-top: 1px solid #ccc;
+  margin: 0.5rem 0;
+}
+
+
+
+
+
+
+
+
