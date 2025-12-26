@@ -9,6 +9,8 @@ from .views import cadastro
 
 urlpatterns = [
     path('cadastro/', views.cadastro, name='cadastro'),
+    path('checkout/', views.checkout, name='checkout'),
+    path('planos/', views.escolher_plano, name='escolher_plano'),
 ]
 
 

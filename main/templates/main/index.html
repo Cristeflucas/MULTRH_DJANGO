@@ -5,6 +5,7 @@
 
 {% block content %}
 
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 <!-- CARROSSEL -->
 <div id="carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 
@@ -123,5 +124,9 @@
     </div>
   </div>
 </section>
+  {% include "vagas/tela_vagas.html" %}
+
 
 {% endblock %}
+
+  

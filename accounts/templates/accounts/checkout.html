@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-5">
+  <div class="row justify-content-center">
+
+    <div class="col-md-8">
+      <div class="card shadow-lg rounded-4">
+        <div class="card-body p-4">
+
+          <h3 class="text-center fw-bold mb-4">Finalizar Assinatura</h3>
+
+          <form method="POST">
+            {% csrf_token %}
+
+            <!-- PLANOS -->
+            <div class="mb-4">
+              <h5 class="fw-bold mb-3">Escolha seu plano</h5>
+
+              {% for plano in planos %}
+              <div class="form-check border rounded p-3 mb-2">
+                <input class="form-check-input plano-radio"
+                       type="radio"
+                       name="plano_id"
+                       value="{{ plano.id }}"
+                       data-nome="{{ plano.nome }}"
+                       data-preco="{{ plano.preco }}"
+                       required>
+
+                <label class="form-check-label w-100">
+                  <strong>{{ plano.nome }}</strong><br>
+                  <span class="text-success fw-bold">R$ {{ plano.preco }}</span>
+                </label>
+              </div>
+              {% endfor %}
+            </div>
+
+            <!-- RESUMO -->
+            <div class="border rounded p-3 mb-4">
+              <h5 class="fw-bold" id="resumoNome">Selecione um plano</h5>
+              <p class="mb-1" id="resumoDuracao">—</p>
+              <h4 class="text-success fw-bold" id="resumoPreco">R$ 0,00</h4>
+            </div>
+
+            <!-- MÉTODO DE PAGAMENTO -->
+            <ul class="nav nav-pills mb-3 justify-content-center">
+              <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#cartao" type="button">
+                  CARTÃO DE CRÉDITO
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pix" type="button">
+                  PIX
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#cartao" type="button">
+                  CARTÃO DE DÉBITO
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+
+              <!-- CARTÃO -->
+              <div class="tab-pane fade show active" id="cartao">
+                <div class="mb-3">
+                  <label class="form-label">Nome no Cartão</label>
+                  <input type="text" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Número do Cartão</label>
+                  <input type="text" class="form-control">
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label">Validade</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label">CVV</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <button class="btn btn-primary w-100 fw-bold mt-3">
+                  Pagar com Cartão
+                </button>
+              </div>
+
+              <!-- PIX -->
+              <div class="tab-pane fade" id="pix">
+                <div class="text-center p-4">
+                  <i class="fa-solid fa-qrcode fa-4x text-success mb-3"></i>
+                  <p class="fw-bold">Pagamento via PIX</p>
+
+                  <button class="btn btn-success w-100 fw-bold">
+                    Gerar PIX
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </form>
+
+          <p class="text-center text-muted mt-4">
+            🔒 Pagamento 100% seguro
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- JS -->
+<script>
+  const radios = document.querySelectorAll(".plano-radio");
+
+  radios.forEach(radio => {
+    radio.addEventListener("change", () => {
+      document.getElementById("resumoNome").innerText = radio.dataset.nome;
+      
+      document.getElementById("resumoPreco").innerText =
+        `R$ ${radio.dataset.preco.replace('.', ',')}`;
+    });
+  });
+</script>
+{% endblock %}

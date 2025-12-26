@@ -29,6 +29,27 @@
   border-top: 1px solid #ccc;
   margin: 0.5rem 0;
 }
+header,
+.navbar {
+  position: relative;
+  z-index: 1050;
+}
+
+#carousel {
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-inner {
+  pointer-events: none;
+}
+
+.carousel-caption,
+.carousel-control-prev,
+.carousel-control-next {
+  pointer-events: auto;
+}
+
 
 
 
