@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'accounts',
-    'vagas',
+    'vagas.apps.VagasConfig',
 ]
 
 # Localização dos arquivos estáticos

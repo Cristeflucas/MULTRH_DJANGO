@@ -40,15 +40,13 @@ header,
   z-index: 1;
 }
 
-.carousel-inner {
-  pointer-events: none;
-}
 
 .carousel-caption,
 .carousel-control-prev,
 .carousel-control-next {
   pointer-events: auto;
 }
+
 
 
 

@@ -10,7 +10,7 @@ from .models import Plano
 
 def checkout(request):
     if "cadastro" not in request.session:
-        return redirect("cadastro")
+        return redirect("accounts:cadastro")
     
     planos = Plano.objects.all()
     return render(request, "accounts/checkout.html", {"planos": planos})
@@ -95,7 +95,7 @@ def cadastro(request):
             "password": password
         }
 
-        return redirect("checkout")
+        return redirect("accounts:checkout")
 
     return render(request, "accounts/cadastro.html")
 

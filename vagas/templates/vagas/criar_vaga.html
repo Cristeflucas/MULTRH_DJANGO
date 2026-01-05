@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br><br>
+<br><br>
+<div class="container mt-5">
+  <h2>Criar nova vaga</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">
+      Salvar vaga
+    </button>
+  </form>
+</div>
+{% endblock %}

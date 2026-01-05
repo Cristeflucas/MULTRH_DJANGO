@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Mult RH{% endblock %}</title>
-    
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <!-- Bootstrap -->
@@ -37,7 +37,7 @@
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}">Início</a></li>
-        <li class="nav-item"><a class="nav-link active" href="{% url 'cadastro' %}">Cadastre-se</a></li>
+        <li class="nav-item"><a class="nav-link active" href="{% url 'accounts:cadastro' %}">Cadastre-se</a></li>
 
         <li class="nav-item dropdown">
           <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown">
@@ -61,7 +61,7 @@
           </ul>
         </li>
 
-        <li class="nav-item"><a class="nav-link active" href="{% url 'lista_vagas' %}">Vagas</a></li>
+        <li class="nav-item"><a class="nav-link active" href="{% url 'vagas:lista_vagas' %}">Vagas</a></li>
 
         <li class="nav-item">
           <a target="_blank" class="nav-link active" href="#">
@@ -151,7 +151,7 @@
 
         <p class="mt-3 text-center">
           Não tem login?
-          <a href="{% url 'cadastro' %}" class="fw-bold text-primary">
+          <a href="{% url 'accounts:cadastro' %}" class="fw-bold text-primary">
             Cadastre-se aqui!
           </a>
         </p>

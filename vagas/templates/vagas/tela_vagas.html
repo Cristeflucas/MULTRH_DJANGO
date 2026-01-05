@@ -1,33 +1,45 @@
 
+{% block content %}
+<br><br>
 
-<br>
-<br>
 <div class="container mt-5 pt-5">
 
+  {% if user.is_superuser %}
+    <a href="{% url 'vagas:criar_vaga' %}" class="btn btn-primary mb-4">
+      Adicionar Nova Vaga
+    </a>
+  {% endif %}
+  <!-- LISTAGEM DE VAGAS -->
   <div class="row">
     {% for vaga in vagas %}
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card shadow-sm h-100">
-          <div class="card-body d-flex flex-column">
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body d-flex flex-column">
 
-            <h5 class="fw-bold">{{ vaga.titulo }}</h5>
-            <p class="mb-1"><strong>Empresa:</strong> {{ vaga.empresa }}</p>
-            <p class="mb-1"><strong>Local:</strong> {{ vaga.local }}</p>
-            <p class="mb-1"><strong>Tipo:</strong> {{ vaga.tipo }}</p>
-            <p class="mb-3">{{ vaga.descricao|truncatewords:20 }}</p>
+          <h5 class="fw-bold">{{ vaga.titulo }}</h5>
+          <p class="mb-1"><strong>Empresa:</strong> {{ vaga.empresa }}</p>
+          <p class="mb-1"><strong>Local:</strong> {{ vaga.local }}</p>
+          <p class="mb-1"><strong>Tipo:</strong> {{ vaga.tipo }}</p>
+          <p class="mb-3">
+            {{ vaga.descricao|truncatewords:20 }}
+          </p>
 
-            <div class="mt-auto">
-              <a href="#" class="btn btn-primary w-100 fw-bold">
-                Carta de Encaminhamento
-              </a>
-            </div>
-
+          <div class="mt-auto">
+            <a href="#" class="btn btn-primary w-100 fw-bold">
+              Carta de Encaminhamento
+            </a>
           </div>
+
         </div>
       </div>
+    </div>
     {% empty %}
-      <p class="text-center">Nenhuma vaga disponível no momento.</p>
+    <p class="text-center">
+      Nenhuma vaga disponível no momento.
+    </p>
     {% endfor %}
   </div>
 
 </div>
+
+{% endblock %}

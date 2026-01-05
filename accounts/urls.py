@@ -6,6 +6,7 @@ from django.urls import path
 from . import views
 from .views import cadastro
 
+app_name = 'accounts'
 
 urlpatterns = [
     path('cadastro/', views.cadastro, name='cadastro'),
